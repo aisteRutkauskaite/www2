@@ -1,20 +1,21 @@
 <?php
-$distance = rand(1, 2000); //km
-$consumption = 7.5; //1 / 100km
-$price_1 = 1.3; // EUR / 1
-$my_money = 100; // EUR
+$grizai_velai = rand(0, 1);
+$grizai_isgeres = rand(0, 1);
 
-$fuel_total = $distance * $consumption / 100;
-$price_trip = $fuel_total * $price_1;
+if ($grizai_velai) {
+    if ($grizai_isgeres) {
+        $answer = 'Grįžai vėlai ir išgėręs';
+    } else {
+        $answer = 'Grįžai vėlai';
+    }
 
-if ($my_money >= $price_trip) {
-    $trip_available = "Iperkama";
 } else {
-    $trip_available = "Neiperkama";
+    if ($grizai_velai) {
+        $answer = 'Nieko nepadarei';
+    } else {
+        $answer = 'Grįžai isgeres';
+    }
 }
-
-$total_money = number_format($price_trip, 2);
-
 
 ?>
 <!doctype html>
@@ -24,18 +25,10 @@ $total_money = number_format($price_trip, 2);
     <title> variables </title>
 </head>
 <body>
-<h1>Kelionės skaičiuoklė</h1>
-<ul>
-    <li>Nuvažiuota distancija:<?php print $distance; ?></li>
-    <li>Sunaudota:<?php print $fuel_total; ?> l. kuro</li>
-    <li>Kaina:<?php print $total_money; ?> pinigų</li>
-    <li>Turimi pinigai:<?php print $my_money; ?> </li>
-</ul>
-<hr>
-<p>
-    Išvada: Kelionė: <?php print $trip_available; ?>
-</p>
-
+<h1>Buitinė skaičiuoklė</h1>
+<h2>
+    Situacija: <?php print $answer; ?>
+</h2>
 </body>
 </html>
 
