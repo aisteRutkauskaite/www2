@@ -1,8 +1,13 @@
 <?php
-$bin_vol = 40;
-$bin_heap_vol = rand(5, 20);
-$trash_per_day = 15;
-$days = floor(($bin_vol + $bin_heap_vol) / $trash_per_day);?>
+$distance = rand(1, 500);
+$consumption = 7.5;
+$price_1 = 1.3;
+$fuel_total = $distance * $consumption / 100;
+$price_trip = $fuel_total * $price_1;
+$format = number_format($price_trip, 2);
+?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,10 +15,12 @@ $days = floor(($bin_vol + $bin_heap_vol) / $trash_per_day);?>
     <title> variables </title>
 </head>
 <body>
-<h1>Šiukšlių prognozė:</h1>
-<p>Turima šiukšlinė - <?php print $bin_vol; ?></p>
-<p>Žmona nieko nesako, kol kaupas neviršija - <?php print $bin_heap_vol; ?> litrų</p>
-<h3>Išvada: Nieko nedarysiu <?php print $days; ?> </h3>
+<h1>Kelionės skaičiuoklė</h1>
+<ul>
+    <li>Nuvažiuota distancija:<?php print $distance; ?></li>
+    <li>Sunaudota:<?php print $fuel_total; ?> l. kuro</li>
+    <li>Kaina:<?php print $format; ?> pinigų</li>
+</ul>
 </body>
 </html>
 
