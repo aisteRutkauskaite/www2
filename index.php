@@ -2,7 +2,7 @@
 $bin_vol = 40;
 $bin_heap_vol = rand(5, 20);
 $trash_per_day = 15;
-$days = floor(($bin_vol + $bin_heap_vol) / $trash_per_day); ?>
+$days = floor(($bin_vol + $bin_heap_vol) / $trash_per_day);?>
 <!doctype html>
 <html lang="en">
 <head>
