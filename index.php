@@ -1,14 +1,19 @@
-<?php date_default_timezone_set('Europe/Vilnius');?>
+<?php
+$bin_vol = 40;
+$bin_heap_vol = rand(5, 20);
+$trash_per_day = 15;
+$days = floor(($bin_vol + $bin_heap_vol) / $trash_per_day); ?>
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Aš,  <?php print date('l') . 'ir PHP' ?></title>
+    <title> variables </title>
 </head>
 <body>
-<h1><b>Aistė</b> - HTML <?php print  'ir PHP' ?> asas/ė jau nuo <?php print date('Y') . " metų" ?> </h1>
-<p>
-    Viskas prasidėjo <?php print date('m'). " mėnesio " .  date('d') . " dieną" ?>
-</p>
+<h1>Šiukšlių prognozė:</h1>
+<p>Turima šiukšlinė - <?php print $bin_vol; ?></p>
+<p>Žmona nieko nesako, kol kaupas neviršija - <?php print $bin_heap_vol; ?> litrų</p>
+<h3>Išvada: Nieko nedarysiu <?php print $days; ?> </h3>
 </body>
 </html>
+
