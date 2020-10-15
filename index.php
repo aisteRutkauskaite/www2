@@ -54,10 +54,9 @@ if($random3 === 1){
     $total_sum+= $dinner3;
 }
 
+
 //$total_price = $total1 + $total2 + $total3;
-
-
-
+$min_price_breakfast = min()
 
 ?>
 
@@ -126,6 +125,9 @@ if($random3 === 1){
             flex-direction: column;
             align-items: center;
         }
+        h3{
+            color: green;
+        }
     </style>
 
 </head>
@@ -138,18 +140,31 @@ if($random3 === 1){
     <h2>Breakfast</h2>
     <div class="img breakfast<?php print $random1; ?>"></div>
     <h4>Breakfest price:<?php print  $price1; ?> </h4>
+    <?php  if($random1 === 2): ?>
+    <h3>Lowest price</h3>
+    <?php  endif ; ?>
 </section>
+
 <section class="container">
     <h2>Lunch</h2>
     <div class="img lunch<?php print $random2; ?>"></div>
     <h4>Lunch price:<?php print $price2; ?> </h4>
+    <?php  if($random2 === 3): ?>
+        <h3>Lowest price</h3>
+    <?php  endif ; ?>
 </section>
+
 <section class="container">
     <h2>Dinner</h2>
     <div class="img dinner<?php print $random3; ?>"></div>
     <h4>Dinner price:<?php print  $price3 ; ?> </h4>
+    <?php  if($random3 === 3): ?>
+        <h3>Lowest price</h3>
+    <?php  endif ; ?>
 </section>
+
 <h2>Total price:<?php print $total_sum; ?> </h2>
+
 </body>
 </html>
 
