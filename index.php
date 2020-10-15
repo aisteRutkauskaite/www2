@@ -1,38 +1,11 @@
 <?php
-$name = 'Aistė';
-$rand_age = rand(16, 27);
-$teistumas = rand(0, 1);
-$children = rand(1, 5);
+$years = rand(1991, 2020);
 
-if ($teistumas == true) {
-    $text2 = 'teista';
+if ($years % 400 === 0 || ($years % 4 === 0 && $years % 100 !== 0)) {
+    $answer = 'keliamieji';
 } else {
-    $text2 = 'neteista';
+    $answer = 'nekeliamieji';
 }
-
-$reason_children = '';
-$reason_conviction = '';
-$reason_age = '';
-
-if ($rand_age >= 18 && $rand_age <= 25 && $teistumas == true && $children <= 2  ) {
-    $text = $name . ' yra šaukiama į kariuomenę ';
-} else {
-    $h1 = $name . ' nėra šaukiama į kariuomenę, nes';
-    if ($children > 2) {
-        $reason_children = ' turi ' . $children . ' vaikus';
-    }
-    if($teistumas) {
-        $reason_conviction = ' yra ' . $text2;
-    }
-    if($rand_age < 18) {
-        $reason_age = ' per jauna';
-    }
-    if ($rand_age > 25) {
-        $reason_age =' per sena';
-    }
-    $text = $h1 . $reason_children . ',' . $reason_conviction . ',' .$reason_age;
-}
-
 ?>
 
 <!doctype html>
@@ -47,13 +20,8 @@ if ($rand_age >= 18 && $rand_age <= 25 && $teistumas == true && $children <= 2  
 <body>
 
 <div class="">
-    <ul>
-        <li>Vardas:<?php print $name; ?></li>
-        <li>Amžius: <?php print $rand_age; ?> </li>
-        <li>Teistumas:<?php print $text2; ?> </li>
-        <li>Vaikai:<?php print $children; ?> </li>
-    </ul>
-    <h1><?php print $text ; ?></h1>
+
+    <h1><?php print $years ?> yra:<?php print $answer ?> </h1>
 </div>
 </body>
 </html>
