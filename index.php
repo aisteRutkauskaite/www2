@@ -1,25 +1,38 @@
-<?php date_default_timezone_set('Europe/Vilnius'); ?>
 <?php
-//$time = date('h:i:s');
-//
-//$minute =  date('i:s') ;
-//
-//$reverse_minutes = abs(date(i) - 59);
-//$minutes_remaining = $reverse_minutes % 5;
-//$seconds_remaining = abs(date('s') - 59);
-//$timer_plus = date('s');
-//$timer_minus = 59 - date('s');
-//
-$joint_timer = 300 - (date('i') % 5 * 60 + date('s'));
+$name = 'Aistė';
+$rand_age = rand(16, 27);
+$teistumas = rand(0, 1);
+$children = rand(1, 5);
 
-$joint_minutes = ($joint_timer - $joint_timer % 60) / 60;
-if ($joint_timer % 60 >= 10 ) {
-    $joint_seconds = $joint_timer % 60;
+if ($teistumas == true) {
+    $text2 = 'teista';
 } else {
-    $joint_seconds = '0' . $joint_timer % 60;
+    $text2 = 'neteista';
 }
-​
-$joint_percent = date('i') % 5 * 20 + 20 * date('s') / 60;
+
+$reason_children = '';
+$reason_conviction = '';
+$reason_age = '';
+
+if ($rand_age >= 18 && $rand_age <= 25 && $teistumas == true && $children <= 2  ) {
+    $text = $name . ' yra šaukiama į kariuomenę ';
+} else {
+    $h1 = $name . ' nėra šaukiama į kariuomenę, nes';
+    if ($children > 2) {
+        $reason_children = ' turi ' . $children . ' vaikus';
+    }
+    if($teistumas) {
+        $reason_conviction = ' yra ' . $text2;
+    }
+    if($rand_age < 18) {
+        $reason_age = ' per jauna';
+    }
+    if ($rand_age > 25) {
+        $reason_age =' per sena';
+    }
+    $text = $h1 . $reason_children . ',' . $reason_conviction . ',' .$reason_age;
+}
+
 ?>
 
 <!doctype html>
@@ -29,39 +42,18 @@ $joint_percent = date('i') % 5 * 20 + 20 * date('s') / 60;
     <title> variables </title>
     <link href="https://fonts.googleapis.com/css2?family=Chilanka&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0 auto;
-        }
-        .joint{
-            background-image: url("joint/image.png");
-           width: 300px;
-            height: 300px;
-            background-size: cover;
-            position: relative;
-
-        }
-        .joint_color{
-            background-image: url("joint/image.color.jpg");
-            width: <?php print $joint_minutes  ; ?>px;
-            height: 300px;
-            background-size: cover;
-            position: absolute;
-            left: 42%;
-            top: 4%;
-        }
-
-
-
-
     </style>
 </head>
 <body>
 
 <div class="">
-    <div class="joint" ></div>
-    <div class="joint_color" ></div>
-    <h2><?php print  $joint_seconds; ?></h2>
+    <ul>
+        <li>Vardas:<?php print $name; ?></li>
+        <li>Amžius: <?php print $rand_age; ?> </li>
+        <li>Teistumas:<?php print $text2; ?> </li>
+        <li>Vaikai:<?php print $children; ?> </li>
+    </ul>
+    <h1><?php print $text ; ?></h1>
 </div>
 </body>
 </html>
