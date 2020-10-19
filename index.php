@@ -1,9 +1,5 @@
 <?php
-for($a = 0; $a <= 9; $a++){
-    for($b = 0; $b <= 9; $b++) {
-        $number = "$a x $b =" . $a * $b;
-    }
-}
+
 
 
 ?>
@@ -14,10 +10,11 @@ for($a = 0; $a <= 9; $a++){
     <meta charset="UTF-8">
     <title> variables </title>
     <style>
-        body{
+        body {
             display: flex;
         }
-        table{
+
+        table {
             border: 1px solid black;
             width: 10%;
             margin: 5px;
@@ -25,16 +22,20 @@ for($a = 0; $a <= 9; $a++){
     </style>
 </head>
 <body>
-<?php for($i = 1 ; $i <= 9; $i ++ ): ?>
-<table>
-    <td>
-    <?php for($x = 1 ; $x <= 9; $x ++ ):
+<?php for ($i = 1; $i <= 9; $i++): ?>
+    <table>
 
-       print "$x x $i = " . $x * $i . "<br />"; ?>
+        <?php for ($x = 1; $x <= 9; $x++): ?>
+            <tr>
+                <td><?php print $x?></td>
+                <td>*</td>
+                <td><?php print $i; ?></td>
+                <td>=</td>
+                <td><?= $x * $i; ?></td>
+            </tr>
+        <?php endfor; ?>
 
-    <?php endfor; ?>
-    </td>
-</table>
+    </table>
 <?php endfor; ?>
 
 </body>
