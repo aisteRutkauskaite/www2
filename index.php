@@ -1,13 +1,9 @@
 <?php
-//$seconds = rand(0, 100000);
-// $string = gmdate('H:i:s' ,$seconds);
+$x = rand(1, 10);
 
-$init = rand(0, 100000);
-$hours = floor($init / 3600);
-$minutes = floor(($init / 60) % 60);
-$seconds = $init % 60;
-
-$result= "$hours:$minutes:$seconds";
+for ($i = 1 ;  $i <= 0 ; $i++ ) {
+    var_dump( "Tai yra $i  -tasis ciklas");
+}
 
 ?>
 
@@ -24,10 +20,6 @@ $result= "$hours:$minutes:$seconds";
 
 <div class="">
 
-<!--    <h1>--><?php //print $seconds ?><!-- </h1>-->
-<!--    <h1>--><?php //print $string ?><!-- </h1>-->
-    <h1><?php print $init ?> </h1>
-    <h1><?php print $result ?> </h1>
 </div>
 </body>
 </html>
