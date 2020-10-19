@@ -1,8 +1,6 @@
 <?php
-$x = rand(1, 10);
-
-for ($i = 1 ;  $i <= 0 ; $i++ ) {
-    var_dump( "Tai yra $i  -tasis ciklas");
+for ($i = 1;  $i <= 12 ; $i++) {
+    var_dump(date('F', strtotime("+$i month")));
 }
 
 ?>
