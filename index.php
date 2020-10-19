@@ -1,7 +1,6 @@
 <?php
 
 
-
 ?>
 
 <!doctype html>
@@ -10,33 +9,34 @@
     <meta charset="UTF-8">
     <title> variables </title>
     <style>
-        body {
-            display: flex;
+        .board {
+            margin: 50px auto;
+            width: 240px;
+            display: table;
+        }
+        .board > .box {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .board > .black {
+            background-color: black;
+        }
+        .board > .white {
+            background-color: lightgray;
         }
 
-        table {
-            border: 1px solid black;
-            width: 10%;
-            margin: 5px;
-        }
     </style>
 </head>
 <body>
-<?php for ($i = 1; $i <= 9; $i++): ?>
-    <table>
-
-        <?php for ($x = 1; $x <= 9; $x++): ?>
-            <tr>
-                <td><?php print $x?></td>
-                <td>*</td>
-                <td><?php print $i; ?></td>
-                <td>=</td>
-                <td><?= $x * $i; ?></td>
-            </tr>
+<div class="board">
+    <?php for ($y = 0; $y < 8; $y++): ?>
+        <?php for ($x = 0; $x < 8; $x++): ?>
+            <div class="box <?= ($x + $y) % 2 == 0 ? 'black' : 'white' ?>"></div>
         <?php endfor; ?>
-
-    </table>
-<?php endfor; ?>
+    <?php endfor; ?>
+</div>
 
 </body>
 </html>
