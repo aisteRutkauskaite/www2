@@ -1,6 +1,17 @@
 <?php
-for ($i = 1;  $i <= 12 ; $i++) {
-    var_dump(date('F', strtotime("+$i month")));
+$kates = rand(1, 3);
+$sunys = rand(1, 3);
+$pavyko = rand(0, 1);
+$katasuniai = 0;
+$pregnant = true;
+
+for ($k = 1 ; $k <= $kates; $k++) {
+    for ($s = 1; $k <= $sunys; $s++) {
+        if ($pavyko = rand(0, 1)) {
+            $katasuniai++;
+            break;
+        }
+    }
 }
 
 ?>
@@ -16,7 +27,10 @@ for ($i = 1;  $i <= 12 ; $i++) {
 </head>
 <body>
 
-<div class="">
+<h1>Katašunių išeiga</h1>
+<h2>Dalyvavo <?php print $kates; ?> katės ir <?php print $sunys; ?> šunys </h2>
+<h3>katašunių išeiga <?php print $katasuniai; ?></h3>
+
 
 </div>
 </body>
