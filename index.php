@@ -9,7 +9,7 @@ $cigs_sun = rand(1, 3);
 $cigs_mon_fri = rand(3, 4);
 
 for($i = 1 ; $i <= $days ; $i++) {
-    $weekday = date("N", strtotime("+$i day"));
+    $weekday = (int) date("N", strtotime("+$i day"));
     if($weekday <= 5){
         $count_total += $cigs_mon_fri ;
     } elseif ($weekday == 6) {
