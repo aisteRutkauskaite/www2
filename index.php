@@ -1,5 +1,26 @@
 <?php
+date_default_timezone_set('Europe/Vilnius');
 
+$days = 365;
+$pack_price = 3.50;
+$count_total = 0;
+$cigs_sat = rand(10, 20);
+$cigs_sun = rand(1, 3);
+$cigs_mon_fri = rand(3, 4);
+
+for($i = 1 ; $i <= $days ; $i++) {
+    $weekday = date("N", strtotime("+$i day"));
+    if($weekday <= 5){
+        $count_total += $cigs_mon_fri ;
+    } elseif ($weekday == 6) {
+        $count_total +=  $cigs_sat;
+    } else {
+        $count_total +=  $cigs_sun;
+    }
+
+}
+$price_total = $pack_price * ceil( $count_total / 20);
+$h2 = "Per $days dienas, surūkysiu $count_total cigarečių už $price_total eur"
 
 ?>
 
@@ -8,36 +29,10 @@
 <head>
     <meta charset="UTF-8">
     <title> variables </title>
-    <style>
-        .board {
-            margin: 50px auto;
-            width: 240px;
-            display: table;
-        }
-        .board > .box {
-            width: 30px;
-            height: 30px;
-            display: inline-block;
-            vertical-align: top;
-        }
-        .board > .black {
-            background-color: black;
-        }
-        .board > .white {
-            background-color: lightgray;
-        }
-
-    </style>
 </head>
 <body>
-<div class="board">
-    <?php for ($y = 0; $y < 8; $y++): ?>
-        <?php for ($x = 0; $x < 8; $x++): ?>
-            <div class="box <?= ($x + $y) % 2 == 0 ? 'black' : 'white' ?>"></div>
-        <?php endfor; ?>
-    <?php endfor; ?>
-</div>
-
+<h1> Mano dūmų skaičiuoklė</h1>
+<h2><?php print $h2 ;?> </h2>
 </body>
 </html>
 
