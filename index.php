@@ -1,45 +1,26 @@
 <?php
-$food = [
-    "Shelve_one" => [
-        [
-            'name' => 'kiausiniai',
-            'vnt' => 3
+$boulingas = [
+    [
+        'kegliai' => [
+            [true, false, false, true],
+            [false, false, true],
+            [false, true],
+            [true]
         ],
-        [
-            'name' => 'grietine',
-            'vnt' => 1
-        ],
-        [
-            'name' => 'jogurtas',
-            'vnt' => 2
-        ],
-        [
-            'name' => 'zuvis',
-            'vnt' => 0
-        ],
+        'slapias' => false
     ],
-    "Shelve_two" => [
-        [
-            'name' => 'pienas',
-            'vnt' => 3
+    [
+        'kegliai' => [
+            [false, false, false, false],
+            [false, false, false],
+            [false, false],
+            [false]
         ],
-        [
-            'name' => 'kefyras',
-            'vnt' => 0
-        ],
-        [
-            'name' => 'degtine',
-            'vnt' => 2
-        ],
-        [
-            'name' => 'kecupas',
-            'vnt' => 2
-        ],
-    ]
+        'slapias' => true
+    ],
 ];
 
-var_dump($food);
-
+var_dump($boulingas);
 ?>
 
 
