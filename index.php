@@ -1,47 +1,41 @@
 <?php
-$tree = rand(10, 30);
-$stem = rand(1, 4);
+$hours = 12;
+$ticket_price = 13;
+$money_earned = 0;
+$total_people = 0;
+$total_people_exit = 0;
+$carousel_spin = 0;
 
-for ($x = 1; $x <= $tree; $x++) {
-    for ($y = 1; $y <= $x; $y++) {
-        $decorations_rand = rand(1, 30);
-        if ($decorations_rand == 1) {
-            print '💚';
-        } elseif ($decorations_rand == 2) {
-            print '💗';
-        } elseif ($decorations_rand == 3) {
-            print '💙';
-        } else {
-            print '*/*';
-        }
+for ($x = 0; $x < $hours; $x++) {
+    $visitors = rand(1, 20);
+    if ($visitors < 10) {
+        $total_people_exit += $visitors;
+    } else {
+        $total_people_exit += $visitors - 10;
+        $carousel_spin++;
+        $total_people += 10;
     }
-    print '</br>';
 }
 
-for ($i = 1; $i <= $stem; $i++) {
-    for ($j = 1; $j <= $i; $j++) {
-        print '**';
-    }
-    print '</br>';
-}
+$money_earned += $ticket_price * $total_people;
+
+$h2 = "karusėlė uždirbo $money_earned eur";
+$h3 = "Žmonių prasisuko: $total_people";
+$h4 = "Žmonių išėjo: $total_people_exit";
+$h5 = "Karuselė sukosi $carousel_spin kartu";
 ?>
-
 
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title> variables </title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
+<h2><?php print $h2; ?></h2>
+<h3><?php print $h3; ?></h3>
+<h4><?php print $h4; ?></h4>
+<h5><?php print $h5; ?></h5>
 </body>
 </html>
 
