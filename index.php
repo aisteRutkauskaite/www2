@@ -1,6 +1,5 @@
 <?php
 $numbers = '20.3k 3.8k 7.7k 992';
-
 $numbers_array = explode(" ", $numbers);
 $numbers_array2 = [];
 
