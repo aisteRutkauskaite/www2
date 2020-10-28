@@ -1,19 +1,25 @@
 <?php
-$numbers = '20.3k 3.8k 7.7k 992';
-$numbers_array = explode(" ", $numbers);
-$numbers_array2 = [];
+$num = rand(-10, 10);
+$num2 = rand(-10, 10);
 
-foreach ($numbers_array as $index => $value) {
-    $numbers_array2[] = intval(str_replace([".", "k"], ["", "00"],  $value));
+function search_numb($number, $number2)
+{
+    var_dump($number, $number2);
+    if (($number > 0 && $number2 > 0) || ($number < 0 && $number2 < 0) || ($number === 0 && $number2 === 0)) {
+        return true;
+    }
+    return false;
+
 }
-var_dump($numbers_array2);
+
+var_dump(search_numb($num, $num2));
 ?>
 
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> arrays </title>
+    <title> functions </title>
 </head>
 <body>
 </html>
