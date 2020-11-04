@@ -1,20 +1,20 @@
 <?php
-$answer = '';
+$answer = 'Pasirink kokį nors variantą';
 
-if (isset($_POST['button'])) {
-    square($answer);
-}
-
-function square(&$answer) {
-    if (isset($_POST['number'])) {
-        if (is_numeric($_POST['number'])) {
-            $answer = $_POST['number'] * $_POST['number'];
-        } else {
-            $answer = 'Please enter correct number';
-        }
+if (isset($_POST['oras'])) {
+    if ($_POST['oras'] == 'saule') {
+        $answer = 'Šiandien šviečia saulė';
+    }
+    if ($_POST['oras'] == 'debesys') {
+        $answer = 'Šiandien  debesuota';
+    }
+    if ($_POST['oras'] == 'sninga') {
+        $answer = 'Šiandien  sninga';
+        $value = 'sninga';}
+    if ($_POST['oras'] == 'lyja') {
+        $answer = 'Šiandien  smarkiai lyja';
     }
 }
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,11 +26,17 @@ function square(&$answer) {
     <title>Functions</title>
 </head>
 <body>
-<form action="" method="post">
-    <input type="text" placeholder="number" name="number">
-    <button type="submit" name="button">Submit</button>
+<form method="post">
+    <label for="oras">Select the weather:</label>
+    <select name="oras" id="cars" >
+        <option value="saule">Šviečia saulė</option>
+        <option value="debesys">Debesuota</option>
+        <option value="sninga">Sninga :)</option>
+        <option value="lyja">lyja lietus</option>
+    </select>
+    <button>Enter</button>
 </form>
-<h2><?php print $answer; ?></h2>
+<h1><?php print $answer; ?></h1>
 </body>
 </html>
 
