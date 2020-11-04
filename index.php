@@ -1,19 +1,14 @@
 <?php
-$answer = 'Pasirink kokį nors variantą';
+$answer = 'Pateikite informacija';
 
-if (isset($_POST['oras'])) {
-    if ($_POST['oras'] == 'saule') {
-        $answer = 'Šiandien šviečia saulė';
+if (isset($_POST['age'])) {
+    if ((int)$_POST['age'] >= 18 && (int)$_POST['age'] <= 26 && $_POST['teistumas'] === 'neteistas') {
+        $answer = 'Jūs esate šaukiama į kariuomenę';
+    } else {
+        $answer = 'Jūs nesate šaukiama į kariuomenę';
     }
-    if ($_POST['oras'] == 'debesys') {
-        $answer = 'Šiandien  debesuota';
-    }
-    if ($_POST['oras'] == 'sninga') {
-        $answer = 'Šiandien  sninga';
-        $value = 'sninga';}
-    if ($_POST['oras'] == 'lyja') {
-        $answer = 'Šiandien  smarkiai lyja';
-    }
+} else {
+    $answer = 'Įveskite amžių';
 }
 ?>
 <!doctype html>
@@ -27,14 +22,13 @@ if (isset($_POST['oras'])) {
 </head>
 <body>
 <form method="post">
-    <label for="oras">Select the weather:</label>
-    <select name="oras" id="cars" >
-        <option value="saule">Šviečia saulė</option>
-        <option value="debesys">Debesuota</option>
-        <option value="sninga">Sninga :)</option>
-        <option value="lyja">lyja lietus</option>
-    </select>
-    <button>Enter</button>
+    <label for="age">Provide your age</label>
+    <input type="number" name="age" required>
+    <label for="teistas">Teistas</label>
+    <input type="radio" id="teistas" name="teistumas" value="teistas">
+    <label for="neteistas">Neteistas</label>
+    <input type="radio" id="neteistas" name="teistumas" value="neteistas">
+    <button>Send</button>
 </form>
 <h1><?php print $answer; ?></h1>
 </body>
