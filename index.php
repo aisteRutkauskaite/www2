@@ -1,50 +1,23 @@
 <?php
-$users = [
-    [
-        'email' => 'aiste@gmail',
-        'password' => 'aiste'
-    ],
-    [
-        'email' => 'sigis@gmail',
-        'password' => 'sigis'
-    ],
-    [
-        'email' => 'agne@gmail',
-        'password' => 'agne'
-    ]
-];
-
-$new_user = [
-    'email' => '',
-    'password' => ''
-];
-
-function validate_new_user(&$array, $email, $password)
-{
-    foreach ($array as $user) {
-        if ($email === $user['email'] && $password === $user['password']) {
-            return false;
+if (!empty($_POST)) {
+    $amount = $_POST['amount'];
+    $total_icons = 4;
+    $icons = [];
+    $won = true;
+    for ($i = 1; $i <= $total_icons; ++$i) {
+        $random_number = rand(1, 2);
+        $icons[] = $random_number;
+        if (count(array_unique($icons)) !== 1) {
+            $won = false;
         }
     }
-    $new_user = [
-        'email' => $email,
-        'password' => $password
-    ];
-    $array[] = $new_user;
-    var_dump($array);
-    return true;
-}
 
-function passsword_match($password, $repaeated_password)
-{
-    if ($password === $repaeated_password) {
-        return true;
+    if ($won) {
+        $result = "Laimėjai " . number_format($total_icons * $amount, 2) . " Eur!";
+    } else {
+        $result = "Pralošei savo jobanus " . number_format($amount, 2) . " Eur!";
     }
-    return false;
 }
-
-
-var_dump($users);
 ?>
 <!doctype html>
 <html lang="en">
@@ -58,34 +31,52 @@ var_dump($users);
           rel="stylesheet">
 </head>
 <style>
-    form {
+    body {
+        padding-top: 50px;
+        text-align: center;
+    }
+    .container {
+        width: 600px;
+        margin: auto;
+        letter-spacing: 2px;
+        padding: 10px;
+    }
+    .icons {
+        padding: 30px 0;
         display: flex;
-        flex-direction: column;
+        justify-content: space-around;
     }
+    .icon {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 100px;
+        height: 100px;
+    }
+    .icon-1 {
+        background-image: url("https://image.flaticon.com/icons/png/512/616/616408.png");
+    }
+    .icon-2 {
+        background-image: url("https://upload-icon.s3.us-east-2.amazonaws.com/uploads/icons/png/7460638491547545112-512.png");
 
-    input, button {
-        width: 200px;
-    }
 </style>
 <body>
-<form method="POST">
-    <label for="email">El. Paštas</label>
-    <input type="email" id="email" name="email" value="">
-    <label for="password">Slaptažodis</label>
-    <input type="password" id="password" name="password" value="">
-    <label for="password_repeat">Pakartokite slaptažodi</label>
-    <input type="password" id="password_repeat" name="password_repeat" value="">
-    <button type="submit" name="login" value="submit">Prisijungti</button>
-    ​
-    <?php if (!empty($_POST)): ?>
-        <?php if (passsword_match($_POST['password'], $_POST['password_repeat']) && validate_new_user($users, $_POST['email'], $_POST['password'])): ?>
-            <div class="message">Sveikiname prisiregistravus <?php print $_POST['email']; ?></div>
-        <?php else: ?>
-            <div class="error">Vartotojas - <i><?php print $_POST['email']; ?></i>
-                Toks vartotojas jau egzistuoja arba splatažodžiai nesutampa
-            </div>
-        <?php endif; ?>
-    <?php endif; ?>
+<form method="post">
+    <input type="number" name="amount" placeholder="Jūsų statoma suma" value="<?php ?>">
+    <button type="submit">Žaisti</button>
 </form>
+
+<?php if (isset($amount)) : ?>
+    <div>Žaidžiama iš: <?= $amount ?> Eur</div>
+    <?php if (isset($icons)): ?>
+        <div class="icons">
+            <?php foreach ($icons as $icon): ?>
+                <div class="icon icon-<?php print $icon ?>"></div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+    <div><?= $result ?></div>
+<?php endif; ?>
+
 </body>
 </html>
