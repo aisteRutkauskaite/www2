@@ -25,6 +25,7 @@ function find_four_letters (&$words) {
 
 find_four_letters($different_words);
 
+
 var_dump($different_words);
 
 ?>
