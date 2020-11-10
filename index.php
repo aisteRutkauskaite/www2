@@ -1,18 +1,20 @@
 <?php
-$numbers = [];
-for ($x = 0; $x < 5 ;$x++) {
-    $numbers[] = rand(-100, 100);
+$words = 'Labai ilgas sakinys APIE nieka';
+
+//function remove_vowels($words) {
+//    $vowels = array("a", "e", "i", "o", "u");
+//    $words = str_ireplace($vowels, "", $words);
+//}
+
+function remove_vowels(&$words) {
+    $vowels = array("a", "e", "i", "o", "u");
+    $words = str_ireplace($vowels, "", $words);
 }
 
-var_dump($numbers);
+remove_vowels($words);
 
-function find_second_biggest_number($array) {
-    rsort($array);
-    return $array[1];
-}
 
-var_dump(find_second_biggest_number($numbers));
-
+var_dump($words);
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,10 +27,6 @@ var_dump(find_second_biggest_number($numbers));
     <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&family=Nova+Square&display=swap"
           rel="stylesheet">
 </head>
-<style>
-
-</style>
 <body>
-
 </body>
 </html>
