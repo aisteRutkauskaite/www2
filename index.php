@@ -1,20 +1,32 @@
 <?php
-$words = 'Labai ilgas sakinys APIE nieka';
+$different_words = ['vejas', 'jura', 'saule', 'miskas', 'dangus', 'laja'];
 
-//function remove_vowels($words) {
-//    $vowels = array("a", "e", "i", "o", "u");
-//    $words = str_ireplace($vowels, "", $words);
+//function find_four_letters ($words) {
+//    $words_with_four_letters = [];
+//    foreach ($words as $word) {
+//        if (strlen($word)  === 4 ) {
+//            $words_with_four_letters[] = $word;
+//        }
+//    }
+//    return $words_with_four_letters;
 //}
+//
+//$words_with_four_letters = find_four_letters($different_words);
+//
+//var_dump($words_with_four_letters);
 
-function remove_vowels(&$words) {
-    $vowels = array("a", "e", "i", "o", "u");
-    $words = str_ireplace($vowels, "", $words);
+function find_four_letters (&$words) {
+    foreach ($words as $key => $word) {
+        if (strlen($word)  !== 4 ) {
+            array_splice($words, array_search($word,$words),1);
+        }
+    }
 }
 
-remove_vowels($words);
+find_four_letters($different_words);
 
+var_dump($different_words);
 
-var_dump($words);
 ?>
 <!doctype html>
 <html lang="en">
