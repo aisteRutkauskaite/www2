@@ -1,32 +1,79 @@
 <?php
-$different_words = ['vejas', 'jura', 'saule', 'miskas', 'dangus', 'laja'];
 
-//function find_four_letters ($words) {
-//    $words_with_four_letters = [];
-//    foreach ($words as $word) {
-//        if (strlen($word)  === 4 ) {
-//            $words_with_four_letters[] = $word;
-//        }
-//    }
-//    return $words_with_four_letters;
-//}
-//
-//$words_with_four_letters = find_four_letters($different_words);
-//
-//var_dump($words_with_four_letters);
-
-function find_four_letters (&$words) {
-    foreach ($words as $key => $word) {
-        if (strlen($word)  !== 4 ) {
-            array_splice($words, array_search($word,$words),1);
-        }
+function generate_array($length, $min, $max)
+{
+    $generated_array = [];
+    for ($x = 1; $x <= $length; $x++) {
+        $generated_array[] = rand($min, $max);
     }
+    return $generated_array;
 }
 
-find_four_letters($different_words);
+$my_array = generate_array(rand(2, 6), 2, 8);
+var_dump($my_array);
 
+function multiply_by_length($array)
+{
+    $result = [];
+    $length = count($array);
+    foreach ($array as $value) {
+        $result[] = (int)$value * $length;
+    }
+    return $result;
+}
 
-var_dump($different_words);
+$new_array = multiply_by_length($my_array);
+var_dump($new_array);
+
+//function multiply_by_length(&$array)
+//{
+//    foreach ($array as &$value) {
+//        $value *= count($array);
+//    }
+//
+//}
+//
+//multiply_by_length($my_array);
+//var_dump($my_array);
+
+//function partition($array) {
+//    $new_array = [];
+//    $even = [];
+//    $odd = [];
+//    foreach ($array as $value) {
+//        if ($value % 2 == 0) {
+//            $even[] = $value;
+//            var_dump($even);
+//        } else {
+//            $odd[] = $value;
+//            var_dump($odd);
+//        }
+//    }
+//    $new_array[] = $even;
+//    $new_array[] = $odd;
+//    return $new_array;
+//}
+//
+//$even_odd_array = partition($my_array);
+//var_dump($even_odd_array);
+
+function partition_rel(&$array) {
+    $even = [];
+    $odd = [];
+    foreach ($array as $value) {
+        if ($value % 2 == 0) {
+            $even[] = $value;
+            var_dump($even);
+        } else {
+            $odd[] = $value;
+            var_dump($odd);
+        }
+    }
+    $array = ['evens' => $even, 'odds' => $odd];
+}
+
+partition_rel($my_array);
+var_dump($my_array);
 
 ?>
 <!doctype html>
