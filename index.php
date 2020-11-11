@@ -1,79 +1,38 @@
 <?php
+$name_one = ['Aiste'];
+$name_two = ['Aiste', 'Sigis'];
+$name_three = ['Aiste', 'Sigis', 'Agne'];
+$name_four = ['Aiste', 'Sigis', 'Agne', 'Minde'];
 
-function generate_array($length, $min, $max)
-{
-    $generated_array = [];
-    for ($x = 1; $x <= $length; $x++) {
-        $generated_array[] = rand($min, $max);
-    }
-    return $generated_array;
-}
 
-$my_array = generate_array(rand(2, 6), 2, 8);
-var_dump($my_array);
-
-function multiply_by_length($array)
-{
-    $result = [];
+function people_likes_this($array) {
+    $answer ='';
     $length = count($array);
-    foreach ($array as $value) {
-        $result[] = (int)$value * $length;
+    var_dump($length);
+    switch ($length) {
+        case 0:
+            $answer = 'Empty array';
+            break;
+        case 1:
+            $answer = $array[0] . 'likes this';
+            break;
+        case 2:
+            $answer = $array[0] . 'and' . $array[1] . 'likes this';
+            break;
+        case 3:
+            $answer =  $array[0] . ',' . $array[1] . ',' . $array[2] .'likes this' ;
+            break;
+        case 4:
+            $answer = $array[3];
+            break;
     }
-    return $result;
+    return $answer;
+
+
 }
 
-$new_array = multiply_by_length($my_array);
-var_dump($new_array);
-
-//function multiply_by_length(&$array)
-//{
-//    foreach ($array as &$value) {
-//        $value *= count($array);
-//    }
-//
-//}
-//
-//multiply_by_length($my_array);
-//var_dump($my_array);
-
-//function partition($array) {
-//    $new_array = [];
-//    $even = [];
-//    $odd = [];
-//    foreach ($array as $value) {
-//        if ($value % 2 == 0) {
-//            $even[] = $value;
-//            var_dump($even);
-//        } else {
-//            $odd[] = $value;
-//            var_dump($odd);
-//        }
-//    }
-//    $new_array[] = $even;
-//    $new_array[] = $odd;
-//    return $new_array;
-//}
-//
-//$even_odd_array = partition($my_array);
-//var_dump($even_odd_array);
-
-function partition_rel(&$array) {
-    $even = [];
-    $odd = [];
-    foreach ($array as $value) {
-        if ($value % 2 == 0) {
-            $even[] = $value;
-            var_dump($even);
-        } else {
-            $odd[] = $value;
-            var_dump($odd);
-        }
-    }
-    $array = ['evens' => $even, 'odds' => $odd];
-}
-
-partition_rel($my_array);
-var_dump($my_array);
+;
+var_dump(people_likes_this($name_two));
 
 ?>
 <!doctype html>
