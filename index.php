@@ -27,11 +27,7 @@ function people_likes_this($array) {
             break;
     }
     return $answer;
-
-
-}
-
-;
+};
 var_dump(people_likes_this($name_two));
 
 ?>
