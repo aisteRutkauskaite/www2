@@ -1,34 +1,31 @@
 <?php
-$name_one = ['Aiste'];
-$name_two = ['Aiste', 'Sigis'];
-$name_three = ['Aiste', 'Sigis', 'Agne'];
-$name_four = ['Aiste', 'Sigis', 'Agne', 'Minde'];
+$user_inputs = [
+    ["catr", "blue", "skt", "umbrells", "paddy"],
+    ["it", "is", "find"],
+    ["aprinl", "showrs", "bring", "may", "flowers"],
+    ['weird', 'indicr', 'moment', 'starry', 'wind', 'skies'],
+];
+$correct_texts = [
+    ["cat", "blue", "sky", "umbrella", "paddy"],
+    ["it", "is", "fine"],
+    ["april", "showers", "bring", "may", "flowers"],
+    ['weird', 'indict', 'moment', 'starry', 'wind', 'skies'],
+];
 
-
-function people_likes_this($array) {
-    $answer ='';
-    $length = count($array);
-    var_dump($length);
-    switch ($length) {
-        case 0:
-            $answer = 'Empty array';
-            break;
-        case 1:
-            $answer = $array[0] . 'likes this';
-            break;
-        case 2:
-            $answer = $array[0] . 'and' . $array[1] . 'likes this';
-            break;
-        case 3:
-            $answer =  $array[0] . ',' . $array[1] . ',' . $array[2] .'likes this' ;
-            break;
-        case 4:
-            $answer = $array[3];
-            break;
+function check_typing($user_inputs, $correct_texts) {
+$array = [];
+$length = count($user_inputs);
+for ($x = 0; $x < $length; $x++) {
+    if ($user_inputs[$x] === $correct_texts[$x]) {
+        $array[] = 1;
+    } else {
+        $array[] = -1;
     }
-    return $answer;
-};
-var_dump(people_likes_this($name_two));
+}
+return $array;
+}
+
+var_dump(check_typing($user_inputs[1],$correct_texts[1]));
 
 ?>
 <!doctype html>
