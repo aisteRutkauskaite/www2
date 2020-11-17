@@ -1,31 +1,5 @@
 <?php
-$user_inputs = [
-    ["catr", "blue", "skt", "umbrells", "paddy"],
-    ["it", "is", "find"],
-    ["aprinl", "showrs", "bring", "may", "flowers"],
-    ['weird', 'indicr', 'moment', 'starry', 'wind', 'skies'],
-];
-$correct_texts = [
-    ["cat", "blue", "sky", "umbrella", "paddy"],
-    ["it", "is", "fine"],
-    ["april", "showers", "bring", "may", "flowers"],
-    ['weird', 'indict', 'moment', 'starry', 'wind', 'skies'],
-];
-
-function check_typing($user_inputs, $correct_texts) {
-$array = [];
-$length = count($user_inputs);
-for ($x = 0; $x < $length; $x++) {
-    if ($user_inputs[$x] === $correct_texts[$x]) {
-        $array[] = 1;
-    } else {
-        $array[] = -1;
-    }
-}
-return $array;
-}
-
-var_dump(check_typing($user_inputs[1],$correct_texts[1]));
+require 'functions/functions.php';
 
 ?>
 <!doctype html>
@@ -36,9 +10,53 @@ var_dump(check_typing($user_inputs[1],$correct_texts[1]));
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Something</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&family=Nova+Square&display=swap"
-          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Mitr:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<header>
+    <nav>
+        <a href="index.php">Home</a>
+        <a href="about.php">Teams</a>
+        <a href="contact.php">Contact us</a>
+    </nav>
+</header>
+<main>
+    <section class="post">
+        <h1 class="post_title">BASKETBALL TOURNAMENT</h1>
+        <p class="post_text">Tournament for shitty players</p>
+        <article class="team">
+            <div class="team_container">
+                <h2 class="team_name"><?php print $team_one['team_name']; ?></h2>
+                <img class="team_image" src="<?php print $team_one['team_logo']; ?>" alt="">
+                <h3 class="coach">Coach: <?php print $team_one['coach_name']; ?></h3>
+            </div>
+            <span class="vs">VS</span>
+            <div class="team_container">
+                <h2 class="team_name"><?php print $team_two['team_name']; ?></h2>
+                <img class="team_image" src="<?php print $team_two['team_logo']; ?>" alt="">
+                <h3 class="coach">Coach: <?php print $team_two['coach_name']; ?></h3>
+            </div>
+        </article>
+        <article class="date_container">
+            <div class="date_container_info">
+                <h2 class="date_container-tittle">GAME ON:</h2>
+                <div class="date_container-information">
+                    <h2 class="date_container_date"><?php print $game['date']; ?>  </h2>
+                    <h2 class="date_container_time"><?php print ' | ' . $game['time']; ?>  </h2>
+                    <h2 class="date_container_location"><?php print ' | ' . $game['location']; ?></h2>
+                </div>
+                <?php if (teams_scores($game['result'] !== 0)): ?>
+                    <h3 class="date_container_result"><?php print  $game['result']; ?></h3>
+                <?php endif; ?>
+            </div>
+        </article>
+    </section>
+</main>
+<footer>
+    <p>All rights reserved for Aistukas</p>
+</footer>
 </body>
 </html>
