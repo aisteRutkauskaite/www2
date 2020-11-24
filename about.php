@@ -19,10 +19,11 @@ require 'functions/functions.php';
     <nav>
         <a href="index.php">Home</a>
         <a href="about.php">Teams</a>
+        <a href="statistics.php">Statistics</a>
         <a href="contact.php">Contact us</a>
     </nav>
 </header>
-<main>
+<main class="main">
     <article class="teams">
         <div class="teams_container">
             <div class="teams_info">
@@ -57,3 +58,4 @@ require 'functions/functions.php';
 </footer>
 </body>
 </html>
+

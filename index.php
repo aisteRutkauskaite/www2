@@ -1,6 +1,8 @@
 <?php
 require 'functions/functions.php';
 
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,10 +22,11 @@ require 'functions/functions.php';
     <nav>
         <a href="index.php">Home</a>
         <a href="about.php">Teams</a>
+        <a href="statistics.php">Statistics</a>
         <a href="contact.php">Contact us</a>
     </nav>
 </header>
-<main>
+<main class="main">
     <section class="post">
         <h1 class="post_title">BASKETBALL TOURNAMENT</h1>
         <p class="post_text">Tournament for shitty players</p>

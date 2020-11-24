@@ -23,10 +23,11 @@ if (!empty($_POST)) {
     <nav>
         <a href="index.php">Home</a>
         <a href="about.php">Teams</a>
+        <a href="statistics.php">Statistics</a>
         <a href="contact.php">Contact us</a>
     </nav>
 </header>
-<main>
+<main class="main">
     <form action="" method="post">
         <h2 class="form_tittle">Contact us:</h2>
         <label for="name">Įveskite savo vardą</label>
